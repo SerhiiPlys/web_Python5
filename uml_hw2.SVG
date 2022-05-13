@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with "sPlan" (http://www.abacom-online.de) -->
+<svg version="1.1" baseProfile="full"
+xmlns="http://www.w3.org/2000/svg"
+width="2970" height="2100">
+<title>sPlan</title>
+<defs>
+<style type="text/css">
+<![CDATA[
+polyline {stroke-linecap:round; stroke-linejoin:round}
+polygon {stroke-linecap:round; stroke-linejoin:round}
+path {stroke-linecap:round; stroke-linejoin:round}
+circle {stroke-linecap:round; stroke-linejoin:round}
+]]>
+</style>
+</defs>
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 1280 120 L 1650 120 1650 1350 1280 1350 1280 120" />
+<polyline points="1280.00 170.00 1650.00 170.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="1280.00 210.00 1650.00 210.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<text x="1380.00" y="154.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">User_Interface()</text>
+<text x="1440.00" y="192.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">...</text>
+<text x="1300.00" y="252.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">close</text>
+<text x="1300.00" y="292.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">exit</text>
+<text x="1300.00" y="332.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">good bye</text>
+<text x="1300.00" y="372.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">save</text>
+<text x="1300.00" y="412.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add</text>
+<text x="1300.00" y="452.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add address</text>
+<text x="1300.00" y="492.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add birthday</text>
+<text x="1300.00" y="532.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add email</text>
+<text x="1300.00" y="572.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add phone</text>
+<text x="1300.00" y="612.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">remove</text>
+<text x="1300.00" y="652.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete address</text>
+<text x="1300.00" y="692.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete birthday</text>
+<text x="1300.00" y="732.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete email</text>
+<text x="1300.00" y="772.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete phone</text>
+<text x="1300.00" y="812.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change email</text>
+<text x="1300.00" y="852.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change birthday</text>
+<text x="1300.00" y="892.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change address</text>
+<text x="1300.00" y="932.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change phone</text>
+<text x="1300.00" y="972.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">coming birthday</text>
+<text x="1300.00" y="1012.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add note</text>
+<text x="1300.00" y="1052.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">find note</text>
+<text x="1300.00" y="1092.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change note</text>
+<text x="1300.00" y="1132.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete note</text>
+<text x="1300.00" y="1172.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">tag note</text>
+<text x="1300.00" y="1212.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">help</text>
+<text x="1300.00" y="1252.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">show all</text>
+<text x="1300.00" y="1292.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">search</text>
+<text x="1300.00" y="1332.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">clean</text>
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 2120 630 L 2490 630 2490 950 2120 950 2120 630" />
+<polyline points="2120.00 680.00 2490.00 680.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="2120.00 720.00 2490.00 720.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<text x="2270.00" y="664.00" font-family ="Arial" font-size ="21pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">Note()</text>
+<text x="2280.00" y="702.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">...</text>
+<text x="2140.00" y="772.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">add note</text>
+<text x="2140.00" y="812.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">find note</text>
+<text x="2140.00" y="852.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">change note</text>
+<text x="2140.00" y="892.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete note</text>
+<text x="2140.00" y="932.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">tag note</text>
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 600 120 L 1070 120 1070 300 600 300 600 120" />
+<text x="710.00" y="192.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">       import</text>
+<text x="710.00" y="232.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">prompt_toolkit</text>
+<polyline points="1280.00 200.00 1070.00 200.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polygon points="1070 200 1090 180 1090 220 1070 200" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="1650.00 790.00 2120.00 790.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polygon points="2120 790 2100 810 2100 770 2120 790" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 120 460 L 580 460 580 970 120 970 120 460" />
+<polyline points="119.76 522.20 580.00 522.20" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="120.00 600.00 580.24 600.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<text x="205.07" y="502.76" font-family ="Arial" font-size ="26pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.009,1.000)">AdressBook(UserDict)</text>
+<text x="220.00" y="570.00" font-family ="Arial" font-size ="35pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">rec:Record()</text>
+<text x="140.00" y="662.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">get_record</text>
+<text x="140.00" y="702.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">remove</text>
+<text x="140.00" y="742.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">load_from_file</text>
+<text x="140.00" y="782.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">save_to_file</text>
+<text x="140.00" y="822.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">search</text>
+<text x="140.00" y="862.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">__repr__</text>
+<polyline points="1280.00 590.00 580.00 590.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polygon points="580 590 647 570 647 610 580 590" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 570 1130 L 1030 1130 1030 1880 570 1880 570 1130" />
+<polyline points="570.00 1192.20 1030.24 1192.20" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polyline points="570.00 1420.00 1030.24 1420.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<text x="730.00" y="1170.00" font-family ="Arial" font-size ="26pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">Record()</text>
+<text x="590.00" y="1242.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">+ name</text>
+<text x="590.00" y="1282.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">- adress</text>
+<text x="590.00" y="1322.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">- phone_list</text>
+<text x="590.00" y="1362.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">- email</text>
+<text x="590.00" y="1402.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">- birthday</text>
+<text x="590.00" y="1442.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)"></text>
+<text x="590.00" y="1472.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">append_phone</text>
+<text x="590.00" y="1512.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@get_adress</text>
+<text x="590.00" y="1552.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@set_adress</text>
+<text x="590.00" y="1592.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">delete_adress</text>
+<text x="590.00" y="1632.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@get_phone_lis</text>
+<text x="590.00" y="1672.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@get_email</text>
+<text x="590.00" y="1712.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@set_email</text>
+<text x="590.00" y="1752.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@get_birthday</text>
+<text x="590.00" y="1792.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">@set_birthday</text>
+<text x="590.00" y="1832.00" font-family ="Arial" font-size ="28pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">__repr__</text>
+<polyline points="330.00 970.00 330.00 1470.00 570.00 1470.00 550.00 1450.00 550.00 1490.00 570.00 1470.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<path fill="none" stroke="rgb(0,0,0)" stroke-width="2" style="stroke-linecap:square; stroke-linejoin:miter" d=" M 1930 160 L 2160 160 2160 300 1930 300 1930 160" />
+<text x="1990.00" y="248.00" font-family ="Arial" font-size ="42pt" font-weight="normal" font-style="normal" fill="rgb(0,0,0)" transform=" rotate(0.000) scale(1.000,1.000)">main</text>
+<polyline points="1930.00 250.00 1650.00 250.00" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+<polygon points="1650 250 1670 230 1670 270 1650 250" fill="none" stroke="rgb(0,0,0)" stroke-width="2" />
+</svg>
