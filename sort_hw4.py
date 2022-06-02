@@ -1,24 +1,3 @@
-"""Скрипт написан под мои личные предпочтения с учетом требований ДЗ
-   Версия с потоками
-   К сожалению у программы жесткая структура - одно должно выполняться за
-   другим. то есть пока я  не получу пути ко всем файлам, то бесполезно
-   распаковывать архивы итд...поэтому потоковость здесь псевдопараллельная
-   механизм Локера я импортровал(просто показать что понимаю что это такое),
-   но не использовал - мне достаточно после
-   запуска потока использовать join дождаться окончания и запустить следующий
-   Далее
-   здесь у меня нет независымых последовательных вычислений, чтобы максимально
-   использовать потоковость (превратить их в параллельные).
-   а здесь в основном обращения к API ОС, поэтому
-   бедноватое использование потоковости
-   Далее
-   К тому же потому что потоки используют общие ресурсы то пришлось пару
-   переменных сделать глобальными, чего всегда по возможности нужно
-   избегать
-
-   Далее комментарии на англ и в соответствии с PEP8
-"""
-
 import os      # work with file system
 import sys     # for command line
 import shutil  # for func copy
@@ -42,24 +21,24 @@ def make_trans_dict():
                    "y", "", "e", "yu", "u", "ja", "je", "ji", "g")
     global TRANS
     CYR = []
-    for i in CYRILLIC_SYMBOLS:
-        CYR.append(i)
-    for i, j in zip(CYR, TRANSLATION):
-        TRANS[ord(i)] = j
-        TRANS[ord(i.upper())] = j.upper()
+    for item in CYRILLIC_SYMBOLS:
+        CYR.append(item)
+    for item, jtem in zip(CYR, TRANSLATION):
+        TRANS[ord(item)] = jtem
+        TRANS[ord(item.upper())] = jtem.upper()
 
 
 def check_name(name_a):
-    name_a_a = name_a.translate(TRANS)
-    return re.sub(r'[^a-zA-Z0-9.]', '_', name_a_a)
+    name_a_conv = name_a.translate(TRANS)
+    return re.sub(r'[^a-zA-Z0-9.]', '_', name_a_conv)
 
 
-def check_empty_dir(path_a):
+def check_empty_dir(path_in):
     """Check, if folder is empty then  True
        if folder not empty ot not is then False
     """
-    if os.path.exists(path_a):
-        sz = os.path.getsize(path_a)
+    if os.path.exists(path_in):
+        sz = os.path.getsize(path_in)
         if sz == 0:
             return True
         else:
@@ -68,24 +47,24 @@ def check_empty_dir(path_a):
         return False
 
 
-def del_empty_dir(path_b):
+def del_empty_dir(path_in):
     """Delete empty dir
        Check before that size of folder is 0
     """
-    ls_1 = os.listdir(path_b)
+    ls_pathes = os.listdir(path_in)
     # check for chaild empty folder
-    if bool(ls_1) is True:
-        path_b_a = os.path.join(path_b, ls_1[0])
-        del_empty_dir(path_b_a)
-        ls_1.pop(0)
-        if bool(ls_1) is True:
-            del_empty_dir(path_b)
+    if bool(ls_pathes) is True:
+        path_in_n = os.path.join(path_in, ls_pathes[0])
+        del_empty_dir(path_in_n)
+        ls_pathes.pop(0)
+        if bool(ls_pathes) is True:
+            del_empty_dir(path_in)
         else:
-            os.rmdir(path_b)
+            os.rmdir(path_in)
             return
     else:
         # delete folder - root
-        os.rmdir(path_b)
+        os.rmdir(path_in)
 
 
 def main():
@@ -120,7 +99,6 @@ def main():
 def thread_create_folders(locker):
     '''Making target folders
     '''
-
     global path
     if not os.path.isdir(path):
         print("Ошибка в пути к папке")
@@ -161,70 +139,95 @@ def thread_copy_to_dest(locker):
     """
     global ls_files
     for full_adr_s in ls_files:
-        try:
-            if (("images" in full_adr_s) or ("documents" in full_adr_s) or
-                    ("video" in full_adr_s) or ("audio" in full_adr_s) or
-                    ("archives" in full_adr_s) or ("other" in full_adr_s)):
-                # dont touch files existing in target folders
-                continue
-            elif ((".xlsx" in full_adr_s) or (".txt" in full_adr_s) or
-                  (".doc" in full_adr_s) or (".docx" in full_adr_s) or
-                  (".pdf" in full_adr_s) or (".pptx" in full_adr_s)):
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\documents', normal_name)
+        if (("images" in full_adr_s) or ("documents" in full_adr_s) or
+                ("video" in full_adr_s) or ("audio" in full_adr_s) or
+                ("archives" in full_adr_s) or ("other" in full_adr_s)):
+            # dont touch files existing in target folders
+            continue
+        elif ((".xlsx" in full_adr_s) or (".txt" in full_adr_s) or
+              (".doc" in full_adr_s) or (".docx" in full_adr_s) or
+              (".pdf" in full_adr_s) or (".pptx" in full_adr_s)):
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\documents', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-            elif ((".jpeg" in full_adr_s) or (".bmp" in full_adr_s) or
-                  (".jpg" in full_adr_s) or (".png" in full_adr_s)):
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\images', normal_name)
+        elif ((".jpeg" in full_adr_s) or (".bmp" in full_adr_s) or
+              (".jpg" in full_adr_s) or (".png" in full_adr_s)):
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\images', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-            elif ((".avi" in full_adr_s) or (".mpeg" in full_adr_s) or
-                  (".mp4" in full_adr_s) or (".mov" in full_adr_s)):
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\video', normal_name)
+        elif ((".avi" in full_adr_s) or (".mpeg" in full_adr_s) or
+              (".mp4" in full_adr_s) or (".mov" in full_adr_s)):
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\video', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-            elif ((".mp3" in full_adr_s) or (".ogg" in full_adr_s) or
-                  (".wav" in full_adr_s) or (".amr" in full_adr_s)):
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\audio', normal_name)
+        elif ((".mp3" in full_adr_s) or (".ogg" in full_adr_s) or
+              (".wav" in full_adr_s) or (".amr" in full_adr_s)):
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\audio', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-            elif ((".zip" in full_adr_s) or (".rar" in full_adr_s) or
-                  (".tar" in full_adr_s) or (".gz" in full_adr_s)):
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\archives', normal_name)
+        elif ((".zip" in full_adr_s) or (".rar" in full_adr_s) or
+              (".tar" in full_adr_s) or (".gz" in full_adr_s)):
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\archives', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-            else:
-                normal_name = check_name(os.path.basename(full_adr_s))
-                full_adr_d = os.path.join(path+'\\others', normal_name)
+        else:
+            normal_name = check_name(os.path.basename(full_adr_s))
+            full_adr_d = os.path.join(path+'\\others', normal_name)
+            try:
                 shutil.copyfile(full_adr_s, full_adr_d)
-                os.remove(full_adr_s)
-                print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
-                log_list.append(f"Перемещение \n{full_adr_s} \
+            except Exception:
+                print("Ошибка в путях либо копировании файлов")
+                log_list.append("Ошибка в путях либо копировании файлов\n")
+                os._exit(-2)
+            os.remove(full_adr_s)
+            print(f"Перемещение \n{full_adr_s} в \n{full_adr_d}")
+            log_list.append(f"Перемещение \n{full_adr_s} \
 в \n{full_adr_d}\n")
-        except:
-            print("Ошибка в путях либо копировании файлов")
-            log_list.append("Ошибка в путях либо копировании файлов\n")
-            os._exit(-2)
 
 
 def thread_delete_empty(locker):
@@ -237,19 +240,19 @@ def thread_delete_empty(locker):
     for d in ls_dirs_1:
         full_adr = os.path.join(path, d)
         if check_empty_dir(full_adr):
-            try:
-                if (("images" in full_adr) or ("documents" in full_adr) or
-                        ("video" in full_adr) or ("audio" in full_adr) or
-                        ("archives" in full_adr) or ("other" in full_adr)):
-                    # dont touch empty folders in target folders
-                    continue
-                else:
-                    print(f"Удаление пустой папки\n{full_adr}")
-                    log_list.append(f"Удаление пустой папки\n{full_adr}\n")
-                    # delelte empty folder and subfolders - recursion
+            if (("images" in full_adr) or ("documents" in full_adr) or
+                    ("video" in full_adr) or ("audio" in full_adr) or
+                    ("archives" in full_adr) or ("other" in full_adr)):
+                # dont touch empty folders in target folders
+                continue
+            else:
+                print(f"Удаление пустой папки\n{full_adr}")
+                log_list.append(f"Удаление пустой папки\n{full_adr}\n")
+                # delelte empty folder and subfolders - recursion
+                try:
                     del_empty_dir(full_adr)
-            except:
-                print("Ошибка в удалении пустых папок")
+                except Exception:
+                    print("Ошибка в удалении пустых папок")
     print(' ')
 
 
@@ -268,12 +271,13 @@ def thread_unpack_archives(locker):
             try:
                 shutil.unpack_archive(arc, os.path.join(path+'/archives',
                                                         arc_n))
+            except Exception:
+                print(f"{arc} архив неопознан или поврежден")
+                log_list.append(f"{arc} архив неопознан или поврежден\n")
+            else:
                 os.remove(os.path.join(path+'/archives', arc))
                 print(f"Архив {arc} распакован в папку {arc}")
                 log_list.append(f"Архив {arc} распакован в папку {arc}\n")
-            except:
-                print(f"{arc} архив неопознан или поврежден")
-                log_list.append(f"{arc} архив неопознан или поврежден\n")
         elif (".gz" in arc):
             arc_n = arc[0:len(arc) - 3]
             if not os.path.exists(os.path.join(path+'/archives', arc_n)):
@@ -281,12 +285,13 @@ def thread_unpack_archives(locker):
             try:
                 shutil.unpack_archive(arc, os.path.join(path+'/archives',
                                                         arc_n))
+            except Exception:
+                print(f"{arc} архив неопознан или поврежден")
+                log_list.append(f"{arc} архив неопознан или поврежден\n")
+            else:
                 os.remove(os.path.join(path+'/archives', arc))
                 print(f"Архив {arc} распакован в папку {arc}")
                 log_list.append(f"Архив {arc} распакован в папку {arc}\n")
-            except:
-                print(f"{arc} архив неопознан или поврежден")
-                log_list.append(f"{arc} архив неопознан или поврежден\n")
 
 
 def thread_logging(locker):
