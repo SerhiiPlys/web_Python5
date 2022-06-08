@@ -33,20 +33,14 @@ if __name__ == "__main__":
 
     # for multiprocess as Process
     Mlp.set_start_method('spawn')  # Windows OS
-    p1 = Mlp.Process(target=factorize, args=(128,))
-    p2 = Mlp.Process(target=factorize, args=(255,))
-    p3 = Mlp.Process(target=factorize, args=(99999,))
-    p4 = Mlp.Process(target=factorize, args=(10651060,))
+    data_list = [128, 255, 99999, 10651060]
     print("for multiprocess as Process")
     start_time = time.time()
-    p1.start()
-    p2.start()
-    p3.start()
-    p4.start()
-    p1.join()    # print visible only in cmd.exe
-    p2.join()
-    p3.join()
-    p4.join()
+    for index, item in enumerate(data_list):
+        name = "process" + str(index)   # create uniqe name for each process 
+        name = Mlp.Process(target=factorize, args=(item,))  
+        name.start()
+        name.join()    # print visible only in cmd.exe
     end_time = time.time()
     print("exec_time = ", (end_time - start_time), 's')
 
@@ -54,7 +48,7 @@ if __name__ == "__main__":
     print("for multiprocess as Pool")
     start_time = time.time()
     with Mlp.Pool(5) as pool_proc:   # pool of 5 process
-        pool_proc.map(factorize, [128, 255, 99999, 10651060])
+        pool_proc.map(factorize, data_list)
     end_time = time.time()
     print("exec_time = ", (end_time - start_time), 's')
 
