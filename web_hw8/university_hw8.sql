@@ -16,16 +16,37 @@ CREATE TABLE students (
       ON UPDATE CASCADE
 );
 
--- Table: disciplines
-DROP TABLE IF EXISTS disciplines;
-CREATE TABLE disciplines (
+-- Table: teachers
+DROP TABLE IF EXISTS teachers;
+CREATE TABLE teachers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+    teacher VARCHAR(255) UNIQUE NOT NULL
+);
+
+--Table: subjects
+DROP TABLE IF EXISTS subjects;
+CREATE TABLE subjects (
+    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+    subject VARCHAR(255) UNIQUE NOT NULL
+);
+
+
+-- Table: logs
+DROP TABLE IF EXISTS logs;
+CREATE TABLE logs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title VARCHAR(255) NOT NULL,
-    teacher VARCHAR(255) NOT NULL,
+    subject_id INTEGER,
+    teacher_id INTEGER,
     student_id INTEGER,
     value_of TINYINT UNSIGNED,
     date_of DATE NOT NULL,
     FOREIGN KEY (student_id) REFERENCES students (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+    FOREIGN KEY (subject_id) REFERENCES subjects (id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
+    FOREIGN KEY (teacher_id) REFERENCES teachers (id)
       ON DELETE CASCADE
       ON UPDATE CASCADE
 );
