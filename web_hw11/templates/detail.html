@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Record information</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav
+        style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px"
+      >
+        <ul>
+          <li><a href="/" role="button"> Go back to the main page </a></li>
+        </ul>
+      </nav>
+      <h1>{{rec.name}}</h1>
+      <p>Description: <b>{{rec.description}}</b></p>
+      <p>Email: <b>{{rec.email}}</b></p>
+      <p>Phone: <b>{{rec.phone}}</b></p>
+      <p>Day of Birthday: <kbd>{{rec.birthday}}</kbd></p>
+      <p>Time of creation: <kbd>{{rec.created}}</kbd></p>
+      {% if rec.done %}
+      <p>Status: <ins>Completed</ins></p>
+      {% else %}
+      <p>Status: <i>Not implemented</i></p>
+      {% endif %}
+
+    </main>
+  </body>
+</html>
