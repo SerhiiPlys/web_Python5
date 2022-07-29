@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Organizer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav
+        style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px"
+      >
+        <ul>
+          <li><a href="/record/" role="button">Add Record</a></li>
+          <li><a href="/note/" role="button">Add Note</a></li>
+        </ul>
+      </nav>
+
+      {% for rec in records%}
+      <ul>
+        <li>
+          {%if rec.done%}
+          <a href="/detail/{{rec.id}}" role="button" class="outline"
+            >{{rec.name}}</a
+          >
+          <a href="/done/" role="button">Done rec</a>
+          <a href="/delete/{{rec.name}}" role="button" class="contrast"
+            >Delete rec</a
+          >
+          {% else %}
+
+          <a href="/detail/{{rec.id}}" role="button" class="secondary"
+            ><s>{{rec.name}}</s></a
+          >
+          {% endif %}
+        </li>
+      </ul>
+      {% endfor %}
+    </main>
+  </body>
+</html>

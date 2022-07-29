@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add record</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav
+        style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px"
+      >
+        <ul>
+          <li><a href="/" role="button"> Go back to the main page </a></li>
+        </ul>
+      </nav>
+      <form method="POST" action="/record">
+        <div style="padding: 5px">
+          <label
+            >Record name:
+            <input type="text" name="name" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Record description:
+            <input type="text" name="description" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Record email:
+            <input type="text" name="email" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Record phone:
+            <input type="text" name="phone" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Record address:
+            <input type="text" name="address" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Record birthday:
+            <input type="text" name="birthday" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <button type="reset" class="secondary">Reset</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
