@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Start finapp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'finapp/css/report.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"/>
+  </head>
+  <body>
+  <aside>
+    <img src="{% static 'finapp/img/logo.jpg' %}" alt="Логотип">
+    <span class="Logo">FinApp</span>
+    <h3>Навигация</h3>
+    <ul>
+      <a href=''><li><i class="fa-solid fa-house"></i>Главная</li></a>
+      <a href=''><li><i class="fa-solid fa-hat-cowboy"></i>О нас</li></a>
+      <a href=''><li><i class="fa-solid fa-address-book"></i>Контакты</li></a>
+    </ul>
+  </aside>
+    <main class="container">
+      <nav style="margin-bottom: 226px; border-bottom: 2px solid; padding-left: 40px">
+        <ul>
+          <li><a href="/" role="button"> Go back to the main page </a></li>
+        </ul>
+        <form method="POST" action="{% url 'report' %}">
+        {% csrf_token %}
+            <div style="padding: 2px">
+              <label style="color: #0000ff"
+               >Email:
+               <input type="text" name="email" required />
+              </label>
+            </div>
+            <div style="padding: 2px">
+              <label style="color: #0000ff"
+                >Дата начала поиска:
+                <input type="date" name="start_date" class="form-control">
+              </label>
+            </div>
+            <div style="padding: 2px">
+              <label style="color: #0000ff"
+                >Дата конца поиска:
+                <input type="date" name="end_date" class="form-control">
+              </label>
+            </div>
+            <div style="padding: 5px">
+            <button type="submit">Submit</button>
+        </div>
+        </form>>
+      </nav>
+        {% if record %}
+          <label style="color: #0000ff; font-size:40px">Выборка по запросу</label>
+              <div class="alert alert-warning" style="width: 300px; margin: 10px 40%; text-align: left">
+               <h3>{{record.name}}</h3>
+               <p>{{record.email}}</p>
+                  <label style="color: #0000ff; font-size:12px">Комментарий</label>
+               <p>{{record.comment}}</p>
+                  <label style="color: #0000ff; font-size:12px">Общий доход</label>
+               <p>{{record.debet}}</p>
+                  <label style="color: #0000ff; font-size:12px">Общий расход</label>
+               <p>{{record.kredit}}</p>
+                  <label style="color: #0000ff; font-size:12px">Плановые доходы</label>
+               <p>{{record.plan_plus}}</p>
+                  <label style="color: #0000ff; font-size:12px">Внелановые доходы</label>
+               <p>{{record.unplan_plus}}</p>
+                  <label style="color: #0000ff; font-size:12px">Случайные доходы</label>
+               <p>{{record.fart_plus}}</p>
+                  <label style="color: #0000ff; font-size:12px">Плановые расходы</label>
+               <p>{{record.plan_minus}}</p>
+                  <label style="color: #0000ff; font-size:12px">Внелановые расходы</label>
+               <p>{{record.unplan_minus}}</p>
+                  <label style="color: #0000ff; font-size:12px">Идиотские расходы</label>
+               <p>{{record.idiotic_minus}}</p>
+              </div>
+        {% else %}
+          <label style="color: #0000ff; font-size:40px">Все записи из таблицы</label>
+            {% for item in records_all %}
+              <div class="alert alert-warning" style="width: 300px; margin: 10px 40%; text-align: left">
+                   <h3>{{item.name}}</h3>
+                   <p>{{item.email}}</p>
+                   <p>{{item.plan_plus}}</p>
+              </div>
+            {% endfor %}
+        {% endif %}
+    </main>
+  </body>
+</html>

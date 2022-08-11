@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Start finapp</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'finapp/css/index.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+  </head>
+  <body>
+  <aside>
+    <img src="{% static 'finapp/img/logo.jpg' %}" alt="Логотип">
+    <span class="Logo">FinApp</span>
+    <h3>Навигация</h3>
+    <ul>
+      <a href=''><li><i class="fa-solid fa-house"></i>Главная</li></a>
+      <a href=''><li><i class="fa-solid fa-hat-cowboy"></i>О нас</li></a>
+      <a href=''><li><i class="fa-solid fa-address-book"></i>Контакты</li></a>
+    </ul>
+  </aside>
+    <main class="container">
+      <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 40px">
+        <ul>
+          <li><a href="/" role="button"> Go back to the main page </a></li>
+        </ul>
+      </nav>
+      <form method="POST" action="{% url 'record' %}">
+        {% csrf_token %}
+        <div style="padding: 5px">
+          <label
+            >ФИО:
+            <input type="text" name="name" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Email:
+            <input type="text" name="email" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Плановые нормальные доходы:
+            <input type="text" name="plan_plus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Внелановые нормальные доходы:
+            <input type="text" name="unplan_plus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Случайные доходы:
+            <input type="text" name="fart_plus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Плановые нормальные расходы:
+            <input type="text" name="plan_minus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Внеплановые нормальные расходы:
+            <input type="text" name="unplan_minus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <label
+            >Идиотские расходы:
+            <input type="text" name="idiotic_minus" required />
+          </label>
+        </div>
+        <div style="padding: 5px">
+          <button type="reset" class="secondary">Reset</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
